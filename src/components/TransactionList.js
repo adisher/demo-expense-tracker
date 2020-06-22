@@ -1,21 +1,21 @@
-import React from 'react'
+import React, { useContext } from 'react';
+import { GlobalContext } from '../context/GlobalState';
+import { Transaction } from './Transaction';
+import { List } from '@material-ui/core';
 
 export const TransactionList = () => {
+const { transactions } = useContext(GlobalContext);
+
     return (
         <div>
             <h3>Transaction History</h3>
-            <ul className="list">
-                <li className="plus">
-                    Earnings
-                    <span>$20</span>
-                    <button className="delete-btn">X</button>
-                </li>
-                <li className="minus">
-                    Spendings
-                    <span>$10</span>
-                    <button className="delete-btn">X</button>
-                </li>
-            </ul>
+            <List className="list">
+                {transactions.map(
+                    transaction => (
+                        <Transaction key={transaction.id} transaction={transaction}/>
+                    )
+                )}
+            </List>
         </div>
     )
 }

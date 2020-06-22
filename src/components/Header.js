@@ -1,9 +1,10 @@
 import React from 'react'
+import { Box, Typography } from '@material-ui/core'
 
 export const Header = () => {
     return (
-        <div>
-            <h1>Expense Tracker by Adil Sher</h1>
-        </div>
+        <Box>
+            <Typography style={{alignText: "center",}} variant="h4">Expense Tracker by Adil Sher</Typography>
+        </Box>
     )
 }
